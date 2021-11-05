@@ -2,7 +2,7 @@ const categoriesRef = document.querySelectorAll('.item');
 console.log(`Number of categories:`, categoriesRef.length);
 
 //Способ номер два - две строки ниже 
-const categoriesRef2 = document.querySelector('[id]');
+const categoriesRef2 = document.querySelector('[id="categories"]');
 console.log(`Number of categories:`, categoriesRef2.children.length);
 
 const animalsRef = document.querySelector('.item');
@@ -13,6 +13,6 @@ const productsRef = animalsRef.nextElementSibling;
 console.log(`Category:`, productsRef.firstElementChild.textContent);
 console.log(`Elements:`, productsRef.lastElementChild.children.length);
 
-const technologiesRef = document.querySelector('[id]');
+const technologiesRef = document.querySelector('[id="categories"]');
 console.log(`Category:`, technologiesRef.lastElementChild.firstElementChild.textContent);
 console.log(`Elements:`, technologiesRef.lastElementChild.lastElementChild.children.length);
