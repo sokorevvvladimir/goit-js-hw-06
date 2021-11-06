@@ -12,3 +12,16 @@ const images = [
     alt: 'Group of Horses Running',
   },
 ];
+
+const galleryRef = document.querySelector('.gallery');
+galleryRef.classList.add("grid__list");
+
+const makeGalleryImages = images => {
+  return images
+    .map(image => `<li class = "list grid__item-${images.indexOf(image)+1}"><img src = ${image.url} alt = ${image.alt} width = 320></li>`
+  )
+    .join("");
+};
+  
+
+galleryRef.insertAdjacentHTML('afterbegin', makeGalleryImages(images));
