@@ -5,14 +5,9 @@ console.log(`Number of categories:`, categoriesRef.length);
 const categoriesRef2 = document.querySelector('[id="categories"]');
 console.log(`Number of categories:`, categoriesRef2.children.length);
 
-const animalsRef = document.querySelector('.item');
-console.log(`Category:`, animalsRef.firstElementChild.textContent);
-console.log(`Elements:`, animalsRef.lastElementChild.children.length);
+const mainUlRef = document.querySelector('[id ="categories"]').children;
 
-const productsRef = animalsRef.nextElementSibling;
-console.log(`Category:`, productsRef.firstElementChild.textContent);
-console.log(`Elements:`, productsRef.lastElementChild.children.length);
-
-const technologiesRef = document.querySelector('[id="categories"]');
-console.log(`Category:`, technologiesRef.lastElementChild.firstElementChild.textContent);
-console.log(`Elements:`, technologiesRef.lastElementChild.lastElementChild.children.length);
+const titlesRef = [...mainUlRef].forEach(element => {
+    console.log('Category:', element.firstElementChild.textContent);
+    console.log('Elements:', element.lastElementChild.children.length);
+});
