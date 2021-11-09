@@ -5,21 +5,29 @@ function getRandomHexColor() {
 const divBoxesRef = document.querySelector('#boxes');
 
 const inputRef = document.querySelector('#controls').firstElementChild;
-console.log(inputRef.value);
 
-function createBoxes(amount) {
-  for (let i = 0; i <= amount - 1; i += 1) {
-    const box = document.createElement('div');
-    box.style.width = i * 10 + 30 + 'px';
-    box.style.height = i * 10 + 30 + 'px';
+const btnCreateRef = document.querySelector('button[data-create]');
+
+const createBoxes = amount => {
+  let box;
+  
+  for (let i = 1; i <= amount; i += 1) {
+    box = document.createElement('div');
+    box.style.width = i * 10 - 10 + 30 + 'px';
+    box.style.height = i * 10 - 10 + 30 + 'px';
     box.style.backgroundColor = getRandomHexColor();
     
     return box;
   };
+  divBoxesRef.append(box);
+
 };
 
-const a = createBoxes(inputRef.value);
 
-divBoxesRef.append(a);
+
+btnCreateRef.addEventListener('click', createBoxes);
+
+// createBoxes(inputRef.value);
+
 
 // function destroyBoxes();
