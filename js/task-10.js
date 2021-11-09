@@ -7,27 +7,35 @@ const divBoxesRef = document.querySelector('#boxes');
 const inputRef = document.querySelector('#controls').firstElementChild;
 
 const btnCreateRef = document.querySelector('button[data-create]');
+const btnDestroyRef = document.querySelector('button[data-destroy]');
 
-const createBoxes = amount => {
-  let box;
+const createBoxes = function (amount) {
+  let boxes = [];
   
   for (let i = 1; i <= amount; i += 1) {
-    box = document.createElement('div');
+    const box = document.createElement('div');
+    const color = getRandomHexColor()
     box.style.width = i * 10 - 10 + 30 + 'px';
     box.style.height = i * 10 - 10 + 30 + 'px';
-    box.style.backgroundColor = getRandomHexColor();
+    box.style.backgroundColor = color;
     
-    return box;
+    boxes.push(box);
   };
-  divBoxesRef.append(box);
+  divBoxesRef.append(...boxes);
 
 };
 
+btnCreateRef.addEventListener('click', () => {
+  createBoxes(inputRef.value)
+});
 
 
-btnCreateRef.addEventListener('click', createBoxes);
+const destroyBoxes = function () {
+  divBoxesRef.innerHTML = "";
 
-// createBoxes(inputRef.value);
+};
 
-
-// function destroyBoxes();
+btnDestroyRef.addEventListener('click', () => {
+  destroyBoxes();
+  inputRef.value = "";
+})
